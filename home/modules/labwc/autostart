@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# ── Kill previous instances to avoid duplicates ──
+pkill -x waybar 2>/dev/null
+pkill -x nm-applet 2>/dev/null
+pkill -x blueman-applet 2>/dev/null
+pkill -x kanshi 2>/dev/null
+pkill -x hypridle 2>/dev/null
+
+# ── Display management (Kanshi) ──
+kanshi &
+
+# ── Wallpaper ──
+swaybg -i $HOME/.config/labwc/nixos-wallpaper.png -m fill &
+
+# ── Taskbar (Waybar) ──
+waybar &
+
+# ── Clipboard history daemon (cliphist) ──
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+
+# ── Network & Bluetooth applets ──
+nm-applet --indicator &
+blueman-applet &
+
+# ── Idle management (Hypridle) ──
+hypridle &

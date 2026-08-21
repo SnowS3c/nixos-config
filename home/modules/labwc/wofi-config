@@ -1,0 +1,15 @@
+mode=drun
+show=drun
+width=450
+height=480
+always_parse_args=true
+show_all=true
+print_command=true
+layer=top
+insensitive=true
+prompt=Search applications...
+location=bottom_left
+xoffset=6
+yoffset=1
+allow_markup=true
+term=foot

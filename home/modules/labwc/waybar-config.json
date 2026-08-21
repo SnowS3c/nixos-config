@@ -1,0 +1,168 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 36,
+  "spacing": 4,
+
+  "modules-left": [
+    "custom/launcher",
+    "custom/separator",
+    "wlr/taskbar"
+  ],
+
+  "modules-right": [
+    "custom/updates",
+    "group/cpu-pill",
+    "custom/gpu-temp",
+    "bluetooth",
+    "custom/airpods",
+    "network",
+    "pulseaudio",
+    "custom/notification",
+    "clock",
+    "tray"
+  ],
+
+  "custom/launcher": {
+    "format": "",
+    "on-click": "pkill wofi || wofi --show drun",
+    "tooltip": true,
+    "tooltip-format": "Application Menu (Super + Space)"
+  },
+
+  "custom/separator": {
+    "format": "│",
+    "tooltip": false
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 20,
+    "icon-theme": "Papirus-Dark",
+    "tooltip-format": "{title}",
+    "on-click": "minimize-raise",
+    "on-click-right": "minimize",
+    "on-click-middle": "close"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+
+  "custom/updates": {
+    "exec": "~/.config/labwc/scripts/check-updates.sh",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 1800,
+    "tooltip": true,
+    "on-click": "~/.config/labwc/scripts/check-updates.sh --apply"
+  },
+
+  "group/cpu-pill": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/cpu",
+      "temperature#cpu"
+    ]
+  },
+
+  "custom/cpu": {
+    "exec": "~/.config/labwc/scripts/cpu-usage.py",
+    "return-type": "json",
+    "interval": 3,
+    "format": "{}",
+    "tooltip": true
+  },
+
+  "temperature#cpu": {
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 80,
+    "format-warning": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C",
+    "tooltip-format": "CPU Temperature: {temperatureC}°C",
+    "interval": 3
+  },
+
+  "custom/gpu-temp": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{printf \"%02d%%   %d°C\", $1, $2}'",
+    "format": "󰢮 GPU {}",
+    "interval": 3,
+    "tooltip": true,
+    "tooltip-format": "GPU Usage & Temperature: {}"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+
+  "custom/airpods": {
+    "exec": "python3 ~/.config/labwc/scripts/airpods.py",
+    "return-type": "json",
+    "format": "󰋋 {}",
+    "hide-empty-text": true,
+    "tooltip": true
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {essid}",
+    "format-ethernet": "󰈀  Wired",
+    "format-linked": "󰈀  {ifname} (No IP)",
+    "format-disconnected": "󰤭  Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁  Muted",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "tooltip-format": "Notifications (Click to toggle)",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "clock": {
+    "locale": "en_US.UTF-8",
+    "format": "  {:L%H:%M  󰃭  %a %b %d}",
+    "tooltip-format": "<big>{:L%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "yad --calendar --title='Calendar' --undecorated --close-on-unfocus --no-buttons"
+  }
+}

@@ -1,0 +1,17 @@
+# Nix / NixOS build outputs & direnv
+result
+result-*
+.direnv/
+# Ignore if this configuration will be used on multiple machines
+hardware-configuration.nix
+
+# Editor / IDE temporary files
+*.swp
+*.swo
+*~
+.vscode/
+pyrightconfig.json
+
+# Backup & secret keys
+*.bak
+*.tmp

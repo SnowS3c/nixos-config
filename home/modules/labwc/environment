@@ -1,0 +1,43 @@
+# ── Virtual Machines (UTM / VirtualBox / QEMU) ──
+# Disable hardware cursors for VMs
+# WLR_NO_HARDWARE_CURSORS=1
+# Software renderer fallback (uncomment if UTM/VirtualBox screen stays black or stutters):
+# WLR_RENDERER=pixman
+
+# ── NVIDIA + Wayland (Disabled for Virtual Machines) ──
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+WLR_RENDERER=gles2
+__NV_PRIME_RENDER_OFFLOAD=0
+
+# ── Native Wayland & Qt QML modules for applications ──
+MOZ_ENABLE_WAYLAND=1
+QT_QPA_PLATFORM=wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+QML2_IMPORT_PATH=/run/current-system/sw/lib/qt-6/qml
+QT_PLUGIN_PATH=/run/current-system/sw/lib/qt-6/plugins
+SDL_VIDEODRIVER=wayland
+XDG_SESSION_TYPE=wayland
+XDG_CURRENT_DESKTOP=wlroots
+
+# ── Video acceleration (VA-API) ──
+LIBVA_DRIVER_NAME=nvidia
+MOZ_DISABLE_RDD_SANDBOX=1
+
+# Gaming — MangoHud disabled by default (enabled with 'mangohud %command%' in Steam)
+# MANGOHUD=1
+# MANGOHUD_DLSYM=1
+
+# Locale
+LANG=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+
+# Keyboard layout (XKB / Wayland)
+XKB_DEFAULT_LAYOUT=us
+XKB_DEFAULT_MODEL=pc105
+
+# Cursor
+XCURSOR_THEME=Nordic-cursors
+XCURSOR_SIZE=24
+HYPRCURSOR_THEME=Nordic-cursors
+HYPRCURSOR_SIZE=24

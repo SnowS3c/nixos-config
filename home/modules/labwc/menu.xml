@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+
+  <!-- ════ Submenu: Gaming ════ -->
+  <menu id="gaming-menu" label="🎮 Gaming">
+    <item label="Steam">
+      <action name="Execute">
+        <command>steam</command>
+      </action>
+    </item>
+    <item label="ProtonDB">
+      <action name="Execute">
+        <command>x-www-browser https://www.protondb.com</command>
+      </action>
+    </item>
+    <item label="GameMode Status">
+      <action name="Execute">
+        <command>x-terminal-emulator -e sh -c "gamemoded -s; read -n 1 -s -r -p 'Press any key to close...'"</command>
+      </action>
+    </item>
+    <item label="MangoHud Config">
+      <action name="Execute">
+        <command>x-terminal-emulator -e editor ~/.config/MangoHud/MangoHud.conf</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- ════ Submenu: Preferences ════ -->
+  <menu id="preferences-menu" label="🔧 Preferences">
+    <item label="Audio">
+      <action name="Execute">
+        <command>pavucontrol</command>
+      </action>
+    </item>
+    <item label="Network">
+      <action name="Execute">
+        <command>nm-connection-editor</command>
+      </action>
+    </item>
+    <item label="Bluetooth">
+      <action name="Execute">
+        <command>blueman-manager</command>
+      </action>
+    </item>
+    <item label="Display">
+      <action name="Execute">
+        <command>wdisplays</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Appearance / Icons (nwg-look)">
+      <action name="Execute">
+        <command>nwg-look</command>
+      </action>
+    </item>
+    <item label="Window Settings (obconf-qt)">
+      <action name="Execute">
+        <command>obconf-qt</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Edit rc.xml">
+      <action name="Execute">
+        <command>x-terminal-emulator -e editor ~/.config/labwc/rc.xml</command>
+      </action>
+    </item>
+    <item label="Edit menu.xml">
+      <action name="Execute">
+        <command>x-terminal-emulator -e editor ~/.config/labwc/menu.xml</command>
+      </action>
+    </item>
+    <item label="Edit autostart">
+      <action name="Execute">
+        <command>x-terminal-emulator -e editor ~/.config/labwc/autostart</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Reload Configuration">
+      <action name="Reconfigure" />
+    </item>
+  </menu>
+
+  <!-- ════ Submenu: System ════ -->
+  <menu id="system-menu" label="📊 System">
+    <item label="📖 NixOS Administration Manual">
+      <action name="Execute">
+        <command>sh -c "~/.config/labwc/scripts/nixos-admin-help.sh"</command>
+      </action>
+    </item>
+    <item label="⌨️ Keyboard Shortcuts">
+      <action name="Execute">
+        <command>sh -c "~/.config/labwc/scripts/keybindings-help.sh"</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Process Monitor (btop)">
+      <action name="Execute">
+        <command>x-terminal-emulator -e btop</command>
+      </action>
+    </item>
+    <item label="System Info">
+      <action name="Execute">
+        <command>x-terminal-emulator -e fastfetch</command>
+      </action>
+    </item>
+    <item label="Disk Usage">
+      <action name="Execute">
+        <command>x-terminal-emulator -e bash -c 'df -h; echo; lsblk; read -p "Press Enter to close..."'</command>
+      </action>
+    </item>
+    <item label="Htop">
+      <action name="Execute">
+        <command>x-terminal-emulator -e htop</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Wi-Fi Networks">
+      <action name="Execute">
+        <command>x-terminal-emulator -e bash -c 'nmcli dev wifi list; read -p "Press Enter to close..."'</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- ════ Submenu: Incus / Virtualization ════ -->
+  <menu id="incus-menu" label="📦 Incus (VMs / Containers)">
+    <item label="List Instances">
+      <action name="Execute">
+        <command>x-terminal-emulator -e sh -c "incus list; echo; read -n 1 -s -r -p 'Press any key to close...'"</command>
+      </action>
+    </item>
+    <item label="Resource Monitor / Top">
+      <action name="Execute">
+        <command>x-terminal-emulator -e incus top</command>
+      </action>
+    </item>
+    <item label="Incus Web UI">
+      <action name="Execute">
+        <command>x-www-browser https://127.0.0.1:8443</command>
+      </action>
+    </item>
+    <separator />
+    <item label="Initialize Incus (Admin Init)">
+      <action name="Execute">
+        <command>x-terminal-emulator -e sudo incus admin init</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- ════ Submenu: Exit ════ -->
+  <menu id="exit-menu" label="⏻ Exit">
+    <item label="Log Out">
+      <action name="Exit" />
+    </item>
+    <item label="Reboot">
+      <action name="Execute">
+        <command>systemctl reboot</command>
+      </action>
+    </item>
+    <item label="Power Off">
+      <action name="Execute">
+        <command>systemctl poweroff</command>
+      </action>
+    </item>
+    <item label="Suspend">
+      <action name="Execute">
+        <command>systemctl suspend</command>
+      </action>
+    </item>
+  </menu>
+
+  <!-- ════════════════════════════════════════════════════
+       MAIN MENU (right click on desktop)
+       ════════════════════════════════════════════════════ -->
+  <menu id="root-menu" label="labwc">
+
+    <item label="🔍 Search Applications">
+      <action name="Execute">
+        <command>sh -c "pkill wofi || wofi --show drun"</command>
+      </action>
+    </item>
+    <item label="📷 Screenshot (Flameshot)">
+      <action name="Execute">
+        <command>flameshot gui</command>
+      </action>
+    </item>
+
+    <separator />
+
+    <item label="💻 Terminal">
+      <action name="Execute">
+        <command>x-terminal-emulator</command>
+      </action>
+    </item>
+    <item label="🌐 Web Browser">
+      <action name="Execute">
+        <command>x-www-browser</command>
+      </action>
+    </item>
+    <item label="📁 File Manager">
+      <action name="Execute">
+        <command>x-file-manager</command>
+      </action>
+    </item>
+
+    <separator />
+
+    <menu id="gaming-menu" />
+    <menu id="incus-menu" />
+    <menu id="preferences-menu" />
+    <menu id="system-menu" />
+
+    <separator />
+
+    <item label="🔒 Lock Screen">
+      <action name="Execute">
+        <command>hyprlock</command>
+      </action>
+    </item>
+    <item label="🔄 Reload labwc">
+      <action name="Reconfigure" />
+    </item>
+
+    <separator />
+
+    <menu id="exit-menu" />
+
+  </menu>
+
+</openbox_menu>

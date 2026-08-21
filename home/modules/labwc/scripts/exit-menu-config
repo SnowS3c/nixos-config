@@ -1,0 +1,11 @@
+mode=dmenu
+width=380
+height=370
+always_parse_args=true
+layer=top
+insensitive=true
+prompt=Action:
+location=center
+allow_markup=true
+cache_file=/dev/null
+sort_order=default

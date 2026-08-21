@@ -1,0 +1,102 @@
+/* NixOS Wallpaper inspired SwayNC styling */
+:root {
+  --cc-bg: rgba(18, 27, 32, 0.95);
+  --noti-bg: #1a262c;
+  --noti-border: #334a56;
+  --text-color: #d8eeed;
+  --text-color-disabled: #718e99;
+  --accent-color: #6fe3e1;
+  --notification-icon-size: 48px;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+}
+
+.control-center {
+  background-color: var(--cc-bg);
+  border: 2px solid var(--noti-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
+  padding: 12px;
+}
+
+.notification-row {
+  outline: none;
+  margin: 4px;
+}
+
+.notification {
+  border-radius: 8px;
+  margin: 4px 0px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background: var(--noti-bg);
+  border: 1px solid var(--noti-border);
+}
+
+.notification-content {
+  background: transparent;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.close-button {
+  background: #ff4d4d;
+  color: #121b20;
+  text-shadow: none;
+  padding: 2px;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: none;
+  border: none;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: #ff6b6b;
+  transition: all 0.15s ease-in-out;
+}
+
+.widget-title {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 15px;
+  margin: 6px;
+}
+
+.widget-title > button {
+  font-size: 12px;
+  color: var(--text-color);
+  background: var(--noti-bg);
+  border: 1px solid var(--noti-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.widget-title > button:hover {
+  background: var(--accent-color);
+  color: #1a1b26;
+}
+
+.widget-dnd {
+  color: var(--text-color);
+  margin: 6px;
+  font-size: 13px;
+}
+
+.widget-dnd > switch {
+  font-size: 12px;
+  border-radius: 12px;
+  background: var(--noti-bg);
+  border: 1px solid var(--noti-border);
+}
+
+.widget-dnd > switch:checked {
+  background: #f7768e;
+  border-color: #f7768e;
+}

@@ -1,0 +1,238 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(18, 20, 28, 0.88);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #c0caf5;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+tooltip {
+    background: rgba(24, 26, 36, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #c0caf5;
+}
+
+tooltip label {
+    color: #c0caf5;
+    padding: 6px;
+}
+
+#custom-launcher {
+    background: rgba(126, 186, 228, 0.15);
+    color: #7ebae4;
+    font-size: 17px;
+    padding: 0 18px 0 14px;
+    margin: 3px 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#custom-launcher:hover {
+    background: rgba(126, 186, 228, 0.3);
+    color: #ffffff;
+}
+
+#custom-separator {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 15px;
+    padding: 0 2px;
+    margin: 0 2px;
+}
+
+#taskbar {
+    margin: 3px 4px;
+}
+
+#taskbar button {
+    padding: 2px 8px;
+    margin: 0 2px;
+    border-radius: 6px;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#taskbar button.active {
+    background: rgba(126, 186, 228, 0.25);
+    border-bottom: 2px solid #7ebae4;
+}
+
+#taskbar button.minimized {
+    opacity: 0.5;
+}
+
+#tray,
+#cpu-pill,
+#custom-cpu,
+#cpu,
+#temperature,
+#custom-gpu-temp,
+#bluetooth,
+#custom-airpods,
+#network,
+#pulseaudio,
+#custom-notification,
+#clock {
+    padding: 0 10px;
+    margin: 3px 3px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #a9b1d6;
+    transition: all 0.2s ease;
+}
+
+#tray {
+    margin-right: 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #f7768e;
+}
+
+#cpu-pill,
+#temperature:hover,
+#custom-gpu-temp:hover,
+#bluetooth:hover,
+#custom-airpods:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-notification:hover,
+#clock:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+#cpu-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#cpu-pill {
+    color: #9ece6a;
+    padding: 0 10px;
+}
+
+#cpu-pill #custom-cpu,
+#cpu-pill #cpu,
+#cpu-pill #temperature {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#cpu-pill #custom-cpu,
+#cpu-pill #cpu {
+    padding-right: 8px;
+    color: #9ece6a;
+}
+
+#cpu-pill #temperature {
+    color: #9ece6a;
+}
+
+#cpu-pill #temperature.warning {
+    color: #e0af68;
+}
+
+#cpu-pill #temperature.critical {
+    color: #f7768e;
+}
+
+#temperature {
+    color: #9ece6a;
+}
+
+#temperature.warning {
+    color: #e0af68;
+}
+
+#temperature.critical {
+    color: #f7768e;
+}
+
+#custom-updates {
+    padding: 0;
+    margin: 0;
+}
+
+#custom-updates.has-updates {
+    padding: 0 10px;
+    margin: 3px 3px;
+    border-radius: 6px;
+    background: rgba(224, 175, 104, 0.15);
+    color: #e0af68;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+#custom-updates.has-updates:hover {
+    background: rgba(224, 175, 104, 0.3);
+    color: #ffffff;
+}
+
+#custom-gpu-temp {
+    color: #7aa2f7;
+}
+
+#bluetooth.connected {
+    color: #7aa2f7;
+}
+
+#bluetooth.disabled {
+    color: #565f89;
+}
+
+#custom-airpods {
+    color: #7aa2f7;
+}
+
+#custom-airpods.good {
+    color: #9ece6a;
+}
+
+#custom-airpods.warning {
+    color: #e0af68;
+}
+
+#custom-airpods.critical {
+    color: #f7768e;
+}
+
+#custom-airpods.disconnected {
+    color: #565f89;
+}
+
+#network.disconnected {
+    color: #f7768e;
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+#custom-notification {
+    font-size: 15px;
+    color: #bb9af7;
+}
+
+#clock {
+    color: #7dcfff;
+    font-weight: 600;
+    margin-right: 6px;
+}

@@ -1,0 +1,46 @@
+# ─── Dark NixOS Theme for labwc ───
+# Inspired by nixos-wallpaper.png (Dark Slate Teal & Glowing Coral Red / Cyan)
+
+# Title bar — active window
+window.active.title.bg.color: #1a262c
+window.active.label.text.color: #d8eeed
+window.active.border.color: #ff4d4d
+window.active.button.unpressed.image.color: #d8eeed
+window.active.button.hover.image.color: #ff4d4d
+window.active.button.pressed.image.color: #6fe3e1
+
+# Title bar — inactive window
+window.inactive.title.bg.color: #121b20
+window.inactive.label.text.color: #718e99
+window.inactive.border.color: #334a56
+window.inactive.button.unpressed.image.color: #718e99
+
+# Close button
+window.active.button.close.unpressed.image.color: #ff4d4d
+window.active.button.close.hover.image.color: #ff6b6b
+
+# Borders
+border.width: 2
+border.color: #334a56
+
+# Padding
+padding.height: 5
+
+# OSD (On Screen Display)
+osd.border.width: 1
+osd.border.color: #334a56
+osd.bg.color: #121b20
+osd.label.text.color: #d8eeed
+
+# Menu
+menu.width.min: 180
+menu.width.max: 350
+menu.items.padding.x: 8
+menu.items.bg.color: #121b20
+menu.items.text.color: #d8eeed
+menu.items.active.bg.color: #263740
+menu.items.active.text.color: #ff4d4d
+menu.separator.color: #334a56
+menu.title.bg.color: #1a262c
+menu.title.text.justify: Left
+menu.title.text.color: #6fe3e1

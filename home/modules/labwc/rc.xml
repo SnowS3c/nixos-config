@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <core>
+    <!-- VRR / Adaptive Sync enabled for tearing-free gaming -->
+    <adaptiveSync>enabled</adaptiveSync>
+    <gap>0</gap>
+  </core>
+
+  <theme>
+    <name></name>
+    <cornerRadius>8</cornerRadius>
+    <font place="ActiveWindow">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+    <font place="InactiveWindow">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+    <font place="MenuItem">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+    <font place="OSD">
+      <name>Sans</name>
+      <size>10</size>
+    </font>
+  </theme>
+
+  <snapping>
+    <overlay>
+      <enabled>yes</enabled>
+    </overlay>
+    <range>1</range>
+    <topMaximize>yes</topMaximize>
+  </snapping>
+
+  <focus>
+    <followMouse>no</followMouse>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
+  <placement>
+    <policy>center</policy>
+  </placement>
+
+  <!-- Regions for Ultrawide 21:9 layout -->
+  <regions>
+    <region name="center-ultrawide" x="20%" y="0%" width="60%" height="100%" />
+  </regions>
+
+  <!-- ═══════════════════════════════════════════
+       KEYBINDINGS
+       ═══════════════════════════════════════════ -->
+  <keyboard>
+    <default />
+
+    <!-- ── Keyboard layout ── -->
+    <keymap>
+      <layout>us</layout>
+    </keymap>
+
+    <!-- ── Keybindings help window (Super + F1) ── -->
+    <keybind key="W-F1">
+      <action name="Execute">
+        <command>~/.config/labwc/scripts/keybindings-help.sh</command>
+      </action>
+    </keybind>
+
+    <!-- ── Application launcher (Wofi / Toggle) ── -->
+    <keybind key="W-Space">
+      <action name="Execute">
+        <command>sh -c "pkill wofi || wofi --show drun"</command>
+      </action>
+    </keybind>
+
+
+    <!-- ── Clipboard history (Cliphist + Wofi) ── -->
+    <keybind key="W-v">
+      <action name="Execute">
+        <command>sh -c "cliphist list | wofi --dmenu --prompt 'Clipboard...' | cliphist decode | wl-copy"</command>
+      </action>
+    </keybind>
+
+    <!-- ── Quick applications ── -->
+    <keybind key="W-t">
+      <action name="Execute">
+        <command>x-terminal-emulator</command>
+      </action>
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute">
+        <command>x-file-manager</command>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>x-www-browser</command>
+      </action>
+    </keybind>
+    <keybind key="W-a">
+      <action name="Execute">
+        <command>antigravity-ide</command>
+      </action>
+    </keybind>
+
+    <!-- ── Window management ── -->
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen" />
+    </keybind>
+    <keybind key="W-m">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-n">
+      <action name="Iconify" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="ToggleDecorations" />
+    </keybind>
+
+    <!-- ── Snap / Tiling ── -->
+    <!-- Arrow keys -->
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-Down">
+      <action name="Iconify" />
+    </keybind>
+
+    <!-- Numeric Keypad (NumLock On / Off) -->
+    <!-- 7: Top-Left -->
+    <keybind key="W-KP_7">
+      <action name="SnapToEdge" direction="up-left" />
+    </keybind>
+    <keybind key="W-KP_Home">
+      <action name="SnapToEdge" direction="up-left" />
+    </keybind>
+
+    <!-- 8: Top / Up -->
+    <keybind key="W-KP_8">
+      <action name="SnapToEdge" direction="up" />
+    </keybind>
+    <keybind key="W-KP_Up">
+      <action name="SnapToEdge" direction="up" />
+    </keybind>
+
+    <!-- 9: Top-Right -->
+    <keybind key="W-KP_9">
+      <action name="SnapToEdge" direction="up-right" />
+    </keybind>
+    <keybind key="W-KP_Prior">
+      <action name="SnapToEdge" direction="up-right" />
+    </keybind>
+
+    <!-- 4: Left -->
+    <keybind key="W-KP_4">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-KP_Left">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+
+    <!-- 5: Maximize (Super + 5 & Numpad 5) -->
+    <keybind key="W-5">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-KP_5">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-KP_Begin">
+      <action name="ToggleMaximize" />
+    </keybind>
+
+    <!-- 0: Center Ultrawide (Super + 0 & Numpad 0) -->
+    <keybind key="W-0">
+      <action name="ToggleSnapToRegion" region="center-ultrawide" />
+    </keybind>
+    <keybind key="W-KP_0">
+      <action name="ToggleSnapToRegion" region="center-ultrawide" />
+    </keybind>
+    <keybind key="W-KP_Insert">
+      <action name="ToggleSnapToRegion" region="center-ultrawide" />
+    </keybind>
+
+    <!-- 6: Right -->
+    <keybind key="W-KP_6">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+    <keybind key="W-KP_Right">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+
+    <!-- 1: Bottom-Left -->
+    <keybind key="W-KP_1">
+      <action name="SnapToEdge" direction="down-left" />
+    </keybind>
+    <keybind key="W-KP_End">
+      <action name="SnapToEdge" direction="down-left" />
+    </keybind>
+
+    <!-- 2: Bottom / Down -->
+    <keybind key="W-KP_2">
+      <action name="SnapToEdge" direction="down" />
+    </keybind>
+    <keybind key="W-KP_Down">
+      <action name="SnapToEdge" direction="down" />
+    </keybind>
+
+    <!-- 3: Bottom-Right -->
+    <keybind key="W-KP_3">
+      <action name="SnapToEdge" direction="down-right" />
+    </keybind>
+    <keybind key="W-KP_Next">
+      <action name="SnapToEdge" direction="down-right" />
+    </keybind>
+
+    <!-- ── Window switching ── -->
+    <keybind key="A-Tab">
+      <action name="NextWindow" />
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow" />
+    </keybind>
+
+    <!-- ── Virtual desktops ── -->
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" />
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1" follow="true" />
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2" follow="true" />
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3" follow="true" />
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4" follow="true" />
+    </keybind>
+
+    <!-- ── Screen locking ── -->
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>hyprlock</command>
+      </action>
+    </keybind>
+
+    <!-- ── Screenshots (Flameshot) ── -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>flameshot gui</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>flameshot gui</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-s">
+      <action name="Execute">
+        <command>flameshot gui</command>
+      </action>
+    </keybind>
+
+    <!-- ── Volume (PipeWire/WirePlumber) ── -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</command>
+      </action>
+    </keybind>
+
+    <!-- ── Media Control (MPRIS / Bluetooth AVRCP / AirPods) ── -->
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPause">
+      <action name="Execute">
+        <command>playerctl pause</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>playerctl next</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="Execute">
+        <command>playerctl previous</command>
+      </action>
+    </keybind>
+
+    <!-- ── Brightness ── -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>brightnessctl set 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>brightnessctl set 5%-</command>
+      </action>
+    </keybind>
+
+    <!-- ── Reload labwc configuration ── -->
+    <keybind key="W-S-r">
+      <action name="Reconfigure" />
+    </keybind>
+
+    <!-- ── Exit / Power Menu ── -->
+    <keybind key="W-Escape">
+      <action name="Execute">
+        <command>~/.config/labwc/scripts/exit-menu.sh</command>
+      </action>
+    </keybind>
+
+    <!-- ── Emergency Exit / Kill Graphical Session ── -->
+    <keybind key="C-A-BackSpace">
+      <action name="Exit" />
+    </keybind>
+  </keyboard>
+
+  <!-- ═══════════════════════════════════════════
+       MOUSE BINDINGS
+       ═══════════════════════════════════════════ -->
+  <mouse>
+    <default />
+    <!-- Right click opens menu; left click unfocuses (does not open menu) -->
+    <context name="Root">
+      <mousebind button="Left" action="Press">
+        <action name="Unfocus" />
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="root-menu" />
+      </mousebind>
+    </context>
+  </mouse>
+
+  <!-- ═══════════════════════════════════════════
+       INPUT (libinput) — Flat profile for gaming
+       ═══════════════════════════════════════════ -->
+  <libinput>
+    <device category="default">
+      <naturalScroll>no</naturalScroll>
+      <accelProfile>flat</accelProfile>
+    </device>
+  </libinput>
+
+  <!-- Virtual desktops -->
+  <desktops number="4">
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+    </names>
+  </desktops>
+
+</labwc_config>
