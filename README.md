@@ -24,6 +24,13 @@ This setup features **[labwc](https://github.com/labwc/labwc)** (a lightweight W
 - **Vim Editor:** Configured with a curated plugin set including NERDTree, fzf-vim, vim-fugitive, vim-gitgutter, vim-floaterm, UltiSnips, and Gruvbox theme. Ansible snippets included via a custom plugin fetched from GitHub.
 - **Reproducible Nix Flakes:** Pinned packages and Home Manager modules on NixOS 26.05.
 
+
+<img width="1919" height="1079" alt="Screen1" src="https://github.com/user-attachments/assets/9916226a-4d88-40e1-b2a4-eb9760ec8728" />
+<img width="1920" height="1080" alt="Screen2" src="https://github.com/user-attachments/assets/c17a3336-1700-4740-9871-efe0fa81a2ff" />
+<img width="1279" height="798" alt="Login_screen" src="https://github.com/user-attachments/assets/60710a28-e10c-4089-9fde-1b695a09610a" />
+<img width="1920" height="1080" alt="Lock_screen" src="https://github.com/user-attachments/assets/f3115285-2523-4677-aeb9-fb28eab493db" />
+
+
 ---
 
 ## 📁 Repository Structure
